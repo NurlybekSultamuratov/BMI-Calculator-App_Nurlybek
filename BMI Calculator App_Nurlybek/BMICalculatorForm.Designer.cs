@@ -31,7 +31,6 @@
             this.WeightInput = new System.Windows.Forms.TextBox();
             this.BMILayoutContainer = new System.Windows.Forms.TableLayoutPanel();
             this.CalculateBMIButton = new System.Windows.Forms.Button();
-            this.ResultInBMIScale = new System.Windows.Forms.TextBox();
             this.CalculatedResult = new System.Windows.Forms.TextBox();
             this.ImperialRadioButton = new System.Windows.Forms.RadioButton();
             this.MetricRadioButton = new System.Windows.Forms.RadioButton();
@@ -39,6 +38,7 @@
             this.MyHeight = new System.Windows.Forms.Label();
             this.MyHeightInput = new System.Windows.Forms.TextBox();
             this.MyWeightInput = new System.Windows.Forms.TextBox();
+            this.ResultInBMIScale = new System.Windows.Forms.TextBox();
             this.BMILayoutContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,11 +59,11 @@
             this.BMILayoutContainer.Controls.Add(this.MyHeight, 0, 0);
             this.BMILayoutContainer.Controls.Add(this.MetricRadioButton, 0, 2);
             this.BMILayoutContainer.Controls.Add(this.ImperialRadioButton, 1, 2);
-            this.BMILayoutContainer.Controls.Add(this.ResultInBMIScale, 0, 3);
-            this.BMILayoutContainer.Controls.Add(this.CalculateBMIButton, 1, 4);
-            this.BMILayoutContainer.Controls.Add(this.CalculatedResult, 1, 3);
             this.BMILayoutContainer.Controls.Add(this.MyWeight, 0, 1);
             this.BMILayoutContainer.Controls.Add(this.MyWeightInput, 1, 1);
+            this.BMILayoutContainer.Controls.Add(this.ResultInBMIScale, 0, 4);
+            this.BMILayoutContainer.Controls.Add(this.CalculateBMIButton, 1, 3);
+            this.BMILayoutContainer.Controls.Add(this.CalculatedResult, 1, 4);
             this.BMILayoutContainer.Location = new System.Drawing.Point(0, 4);
             this.BMILayoutContainer.Name = "BMILayoutContainer";
             this.BMILayoutContainer.RowCount = 5;
@@ -72,31 +72,27 @@
             this.BMILayoutContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.BMILayoutContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.BMILayoutContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.BMILayoutContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.BMILayoutContainer.Size = new System.Drawing.Size(298, 436);
             this.BMILayoutContainer.TabIndex = 0;
             // 
             // CalculateBMIButton
             // 
             this.CalculateBMIButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.CalculateBMIButton.Location = new System.Drawing.Point(153, 351);
+            this.CalculateBMIButton.BackColor = System.Drawing.Color.PeachPuff;
+            this.CalculateBMIButton.Location = new System.Drawing.Point(153, 264);
             this.CalculateBMIButton.Name = "CalculateBMIButton";
-            this.CalculateBMIButton.Size = new System.Drawing.Size(140, 82);
+            this.CalculateBMIButton.Size = new System.Drawing.Size(140, 81);
             this.CalculateBMIButton.TabIndex = 0;
             this.CalculateBMIButton.Text = "Calculate";
-            this.CalculateBMIButton.UseVisualStyleBackColor = true;
-            // 
-            // ResultInBMIScale
-            // 
-            this.ResultInBMIScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.ResultInBMIScale.Location = new System.Drawing.Point(3, 264);
-            this.ResultInBMIScale.Name = "ResultInBMIScale";
-            this.ResultInBMIScale.Size = new System.Drawing.Size(143, 38);
-            this.ResultInBMIScale.TabIndex = 1;
+            this.CalculateBMIButton.UseVisualStyleBackColor = false;
             // 
             // CalculatedResult
             // 
             this.CalculatedResult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.CalculatedResult.Location = new System.Drawing.Point(152, 264);
+            this.CalculatedResult.BackColor = System.Drawing.SystemColors.Menu;
+            this.CalculatedResult.Enabled = false;
+            this.CalculatedResult.Location = new System.Drawing.Point(152, 351);
             this.CalculatedResult.Name = "CalculatedResult";
             this.CalculatedResult.Size = new System.Drawing.Size(143, 38);
             this.CalculatedResult.TabIndex = 2;
@@ -111,6 +107,7 @@
             this.ImperialRadioButton.TabIndex = 3;
             this.ImperialRadioButton.TabStop = true;
             this.ImperialRadioButton.Text = "Imperial";
+            this.ImperialRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
             // 
             // MetricRadioButton
@@ -123,6 +120,7 @@
             this.MetricRadioButton.TabIndex = 4;
             this.MetricRadioButton.TabStop = true;
             this.MetricRadioButton.Text = "Metric";
+            this.MetricRadioButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.MetricRadioButton.UseVisualStyleBackColor = true;
             // 
             // MyWeight
@@ -159,6 +157,17 @@
             this.MyWeightInput.Size = new System.Drawing.Size(143, 38);
             this.MyWeightInput.TabIndex = 10;
             // 
+            // ResultInBMIScale
+            // 
+            this.ResultInBMIScale.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.ResultInBMIScale.BackColor = System.Drawing.SystemColors.Menu;
+            this.ResultInBMIScale.Enabled = false;
+            this.ResultInBMIScale.Location = new System.Drawing.Point(3, 351);
+            this.ResultInBMIScale.Multiline = true;
+            this.ResultInBMIScale.Name = "ResultInBMIScale";
+            this.ResultInBMIScale.Size = new System.Drawing.Size(143, 82);
+            this.ResultInBMIScale.TabIndex = 1;
+            // 
             // BMICalculatorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -186,11 +195,11 @@
         private System.Windows.Forms.Label MyHeight;
         private System.Windows.Forms.RadioButton MetricRadioButton;
         private System.Windows.Forms.RadioButton ImperialRadioButton;
-        private System.Windows.Forms.TextBox ResultInBMIScale;
         private System.Windows.Forms.Button CalculateBMIButton;
         private System.Windows.Forms.TextBox CalculatedResult;
         private System.Windows.Forms.Label MyWeight;
         private System.Windows.Forms.TextBox MyWeightInput;
+        private System.Windows.Forms.TextBox ResultInBMIScale;
     }
 }
 

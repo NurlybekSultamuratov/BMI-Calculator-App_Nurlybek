@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/// <summary>
+/// 
+/// </summary>
 namespace BMI_Calculator_App_Nurlybek
 {
     static class Program

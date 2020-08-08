@@ -22,7 +22,7 @@ namespace BMI_Calculator_App_Nurlybek
         {
             //IF INPUT ON BOTH MY HEIGHT AND MY WEIGHT TEXTBOXES ARE EMPTY
             //THROW MESSAGE TO ENTER VALUES
-            if (MyHeightInput.Text == String.Empty && MyHeightInput.Text == String.Empty)
+            if (MyHeightInput.Text == String.Empty && MyWeightInput.Text == String.Empty)
             {
                 CalculatedResult.Text = "Please enter values";
             }
@@ -38,16 +38,59 @@ namespace BMI_Calculator_App_Nurlybek
                 {
                     HeightInMeters = Convert.ToDouble(MyHeightInput.Text);
                     WeightInKilograms = Convert.ToDouble(MyWeightInput.Text);
-                    result = (WeightInKilograms * 703) / (HeightInMeters * HeightInMeters);
+                    //FORMULA
+                    HeightInMeters /= 100.0;
+                    result = Math.Round(WeightInKilograms / (HeightInMeters * HeightInMeters),2);
+                    //RETURN RESULT TO THE MULTILINE TEXTBOX
+                    if (result < 18.5)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Underweight";
+                    }
+                    else if (result >= 18.5 && result <= 24.9)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Normal";
+                    }
+                    else if (result >= 25 && result <= 29.99)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Overweight";
+                    }
+                    else if (result >= 30)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Obese";
+                    }
                 }
-                else if (ImperialRadioButton.Checked)
+                 if (ImperialRadioButton.Checked)
                 {
                     HeightInInches = Convert.ToDouble(MyHeightInput.Text);
                     WeightInPounds = Convert.ToDouble(MyWeightInput.Text);
-                    result = (WeightInPounds * 703) / (HeightInInches * HeightInInches);
+                    //FORMULA
+                    result = Math.Round((703 *WeightInPounds) / (HeightInInches * HeightInInches),2);
+                    //RETURN RESULT TO THE MULTILINE TEXTBOX
+                    if (result < 18.5)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Underweight";
+                    }
+                    else if (result >= 18.5 && result <= 24.9)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Normal";
+                    }
+                    else if (result >= 25 && result <= 29.99)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result} " +
+                            $" Overweight";
+                    }
+                    else if (result >= 30)
+                    {
+                        CalculatedResult.Text = $"Your BMI: {result}" +
+                            $" Obese";
+                    }
                 }
-                //RETURN RESULT TO THE MULTILINE TEXTBOX
-                CalculatedResult.Text = $"{result}";
             }  
         }
 
